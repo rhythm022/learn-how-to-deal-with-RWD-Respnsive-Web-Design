@@ -1,0 +1,59 @@
+@charset "UTF-8";
+/* 
+	Custom Fluid & Responsive Grid System
+	Structure :Mobile-first(min-width);
+	Syntax:SCSS;
+	Grid:Flexbox-based;
+	Created By:Sample;
+	Date:11/28/2018;
+ */
+ @mixin forLargeScreens($media){@media (min-width: $media/16+em) {@content}}
+
+ //Basic styling
+.container-12 {
+	background:#aaa;
+	font-size:30px;
+	text-shadow: 0 1px 1px rgba(black, .5);
+}
+header {background: #429032;}
+nav { background: #2963BD; }
+section { background: #c90; }
+footer { background: #c03; }
+header, footer { min-height: 150px; }
+section { min-height: 440px;
+  p { margin-bottom: 0; padding-bottom: 20px; }
+}
+nav p { margin-bottom: 0; padding-bottom: 20px; }
+nav {
+  @include forLargeScreens(640) {
+    height: 440px;
+  }
+}
+
+ *,*:before ,*:after{box-sizing: border-box;}
+ //Main container
+ .main-container{width: 100%;max-width: 1200px;padding: 0 1.67%;margin: auto;}
+ //Flexbox container(similar to the .row in the CSS grid)
+ .flex-container{margin-bottom: 10px;
+	&:last-of-type{margin-bottom: 0;}
+	@include forLargeScreens(640){display:flex; }
+	}
+//Nav
+nav{width: 100%;
+	@include forLargeScreens(640){width: 33%;margin-right: 1.67%;}
+}
+//Content area
+section{width: 100%;
+	@include forLargeScreens(640){width: 65.33%}
+}
+//DIVs inside the flex container
+[class*="level-"]{width: 100%;background: #000;color: #fff;border:#fff 1px solid;
+    @include forLargeScreens(640){margin:0 .83%;}
+    // &:first-of-type{margin-left: 0;}
+    // &:last-of-type{margin-right: 0;}
+	}
+.contetn-{@include forLargeScreens(640){
+	    &a{width: 30%;} 
+	    &c{width: 42%;}
+	}
+}

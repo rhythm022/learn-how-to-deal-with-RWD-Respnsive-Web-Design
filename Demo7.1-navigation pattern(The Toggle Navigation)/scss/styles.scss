@@ -1,0 +1,98 @@
+@charset "UTF-8";
+
+/* 
+	The Toggle Navigation 
+	Syntax:SCSS;
+	Created By:Sample;
+	Date:11/29/2018;
+ */
+ *,*:before,*:after{box-sizing: border-box;}
+ //Mobile-first Media Query Mixin
+ @mixin forLargeScreens($media){@media(min-width: $media/16+em) {@content; }}
+ //General Styling
+ .menu, .main-container{
+    background: #eee;
+    width: 98%;
+    margin: auto;
+    max-width: 980px;
+    padding:20px;
+ }
+ //Link that triggers the menu
+ .menu-link{
+    &:before{
+        display: block;
+        line-height: 0;
+        content: "≡";
+        font-size: 3em;
+        padding:10px 0 ;
+    }
+    float: right;
+    margin:0 1% 5px 0;
+    padding:1.5em 1em 1em;
+    background: #f6f6f6;
+    text-decoration: none;
+    color: #333;
+    border-radius: 2px;
+    cursor: pointer;
+    line-height: 0;
+    //Active hamburger icon
+    &.active{background: #333;color: #fff;}
+    @include forLargeScreens(640){display: none;}
+ }
+ span{
+    display: inline-block;
+    overflow: hidden;
+    text-indent: -100%;
+    white-space: nowrap;
+ }
+ //main itself
+ .menu{
+    padding: 0;
+    clear: both;
+    transition: all 1s;
+    &.active{
+        overflow: hidden;
+        max-height: 0; 
+        @include forLargeScreens(640){max-height: inherit;}
+    }
+    ul{
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        border: 1px #999 dotted;
+        border-bottom: none;
+        text-align: center;
+        @include forLargeScreens(640){background: #fff;}
+        li{
+            @include forLargeScreens(640){display: inline-block;margin: 0 .2em}
+            a{
+                display: block;
+                padding: 1em;
+                border-bottom: 1px #999 dotted;
+                text-decoration: none;
+                color: #2963BD;
+                background: #fff;
+                @include forLargeScreens(640){border:0;background: none;}
+            }
+        }
+    }
+ }
+
+body{font-family: Arial,"Helvetica Neue",Helvetica,sans-serif;}
+p{line-height: 1.5}
+h1{margin: 0;}
+html{overflow-y: scroll;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

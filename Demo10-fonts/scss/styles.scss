@@ -1,0 +1,85 @@
+//web font mixin
+@mixin fontFace($fontName,$filePath){
+	@font-face{
+		font:{family:$fontName;};
+		src:url('#{$filePath}.woff') format('woff');
+	}
+}
+@include fontFace(icon-font,'https://s3-us-west-2.amazonaws.com/s.cdpn.io/9988/icon-font')
+
+// Icon Font specific rule                    
+[class^='icon-'],[class*=' icon-']{
+	font:{
+		family:icon-font;
+		weight:100;
+		style:italic;
+		variant:normal;
+	};
+	text-decoration: none;
+	line-height: 1;
+	speak:none;
+	// -webkit-font-smoothing:antialiased;
+	// -moz-osx-font-smoothing:grayscale;
+}
+
+
+.icon-headphones{
+	&:before{
+	content: '\e601';
+	margin-right: 10px;
+	}
+	font-size:40px;
+	font-weight: 600; 
+	padding:5px;
+	color: #2963BD;
+	transition: .3s;
+	&:hover{color: lighten(#2963BD,20);}
+	&:focus{outline: 2px solid orange;}
+}
+
+@include fontFace(icon-fonts, 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/9988/icon-fonts');
+
+[class^="icons-"], [class*=" icons-"] {
+	font-family: 'icon-fonts';
+	speak: none;
+	font-style: normal;
+	font-weight: 400;
+	font-variant: normal;
+	text-transform: none;
+    font-size: 60px;
+	line-height: 1;
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+   //Hide the word from displaying witout affecting accessibility
+   span { display: inline-block; width: 0; height: 0; text-indent: -999%; overflow: hidden; }
+}
+
+.icons-thumbs-up:before  { content: "\e600"; }
+.icons-twitter:before    { content: "\e601"; }
+.icons-leaf:before       { content: "\e602"; }
+.icons-fire:before       { content: "\e603"; }
+.icons-facebook:before   { content: "\e604"; }
+ul{
+	display: flex;
+	list-style: none;
+	padding: 0;
+	flex-wrap: wrap;
+	li{
+		margin-right: 1%;
+		a:not([href*="code"]){
+			text-decoration: none;
+			border-radius: 10px;
+			padding: 15px;
+			transition: .5s;
+			box-shadow:inset 0 0 0 20px rgba(white,0);
+			&:hover{
+				color: skyblue;
+				background: rgba(white, .05);
+				box-shadow:inset 0 0 0 2px rgba(white,.1);
+
+			}
+		}
+	}
+}
+html{background: #999;}

@@ -1,0 +1,34 @@
+@charset "UTF-8";
+
+/* 
+    Meaningful Typograpghy for RWD
+    Syntax:SCSS;
+    Created By:Samps;
+    Date:12/01/2018;
+ */
+
+//Mobile-first Media Query Mixin
+@mixin forLargeScreens($media) {@media (min-width: $media/16+em) {@content;}}
+//Pixels to Rems Mixin(Base-10 model)
+@mixin fontSize($sizeValue:1.6){
+    font-size: ($sizeValue * 10) + px;
+    font-size: $sizeValue + rem;
+}
+
+//base-10 12
+html{
+    font-size:62.5%;
+    @include forLargeScreens(640){font-size: 75%;}
+}
+h1{@include fontSize(3.9269);}
+h2{@include fontSize(2.5888);}
+h3{@include fontSize(2.457);}
+p{@include fontSize;}
+
+
+
+//Styles not needed for demo
+html { margin: 0 30px; font-family: Arial, "Helvetica Neue", Helvetica, sans-serif; line-height: 1.4; }
+h1, h2, h3 { margin-bottom: 0; }
+p { margin-top: 10px; color: #666; }
+blockquote { font-style: italic; }

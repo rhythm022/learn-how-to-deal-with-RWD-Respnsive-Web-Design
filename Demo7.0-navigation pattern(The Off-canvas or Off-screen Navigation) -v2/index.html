@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <input type="checkbox" id="nav-trigger" class="nav-trigger">
+    <label for="nav-trigger" class="label-trigger"><span>Menu</span></label>
+    <nav role="navigation">
+        <ul class="menu">
+            <li><a href="#">Link 001</a></li>
+            <li><a href="#">Link 002</a></li>
+            <li><a href="#">Link 003</a></li>
+            <li><a href="#">Link 004</a></li>
+            <li><a href="#">Link 005</a></li>
+        </ul>
+    </nav>
+    <main class="main-container" role="main">
+        <h1>The Off-Canvas or Off-Screen Navigation</h1>
+        <p>On <strong>small screens</strong>, the meun is triggered with a hamburger icon.</p>
+        <p>On <strong>large screens</strong> starting at 40em(640px),the menu is a horizontal nav.</p>
+    </main>
+</body>
+<script>
+
+// +function(){
+//     window.addEventListener('click', function(event) {
+//         if (event.target.getAttribute("for")==="nav-trigger") {
+//             event.target.classList.toggle("js");
+//             document.querySelector("[role='main']").classList.toggle("js");
+//         }
+//     })
+// }()
+</script>
+</html>

@@ -1,0 +1,124 @@
+@charset "UTF-8";
+
+/* 
+	off-Canvas & Off-Screen Navigation -v2
+	Syntax:SCSS;
+	Created By:Sample;
+	Date:11/30/2018;
+ */
+ *,*:before,*:after{box-sizing: border-box;}
+ //Globals
+ html,body{
+    height: 100%;
+    width: 100%;
+    margin: 0;
+ }
+ //Mobile-first Media Query Mixin
+ @mixin forLargeScreens($m){@media(min-width: $m/16+em) {@content; }}
+
+ @mixin animation-navAndMain($direction: left,$duration:.2s){transition: $direction $duration;}
+//Menu itself
+.menu{
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    top: 0;
+    @include forLargeScreens(640){
+        position: relative;    
+        text-align: center;
+        border:#999 1px dotted;
+        margin: 10px auto 0;
+        max-width: 980px;
+        // min-height: 50%;
+
+
+    }
+    li{
+        width: 100%;
+        border-bottom: 1px dotted #999;
+        @include forLargeScreens(640){
+            display: inline;
+            border-bottom: none;
+        }
+        a{
+            display: block;
+            padding:1em;
+            color: #2963BD;
+            text-decoration: none;
+            @include forLargeScreens(640){
+                display: inline-block;
+            }
+        }
+    }
+}
+//Main Container
+.main-container {
+    // width: 100%;
+    max-width: 980px;
+    min-height: 100%;
+    margin: auto;
+    padding:20px 0 20px 80px;
+    background: #eee;
+    position: relative;
+    left: 0;
+    @include animation-navAndMain;
+    @include forLargeScreens(640){padding:20px;}
+}
+.nav-trigger {
+    position: absolute;
+    clip: rect(0,0,0,0);
+}
+.label-trigger{
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    border:1px solid #ccc;
+    background: #fff;
+    z-index: 2;
+    cursor: pointer;
+    border-radius: 2px;
+    top: 10px;
+    left:10px;
+    line-height: 0;
+    @include animation-navAndMain;
+    @include forLargeScreens(640){display: none;}
+    &:before{
+        display: block;
+        content: '≡';
+        text-align: center;
+        font-size: 3em;
+        line-height: 0;
+        padding-top: 25px;
+
+    }
+    span{
+        display: inline-block;
+        // text-indent: -100%;
+        overflow: hidden;
+        // white-space: nowrap;
+
+    }
+
+}
+.nav-trigger{
+    &:checked + label{left: 215px;background: #000;color: #fff;}
+    &:checked ~ .main-container{left: 200px;box-shadow: 0 0 5px 1px rgba(black, .15);}
+}
+// label.js{
+//     left: 215px;
+//     background: #000;
+//     color:#fff;
+
+// }
+// .main-container.js{
+//     left: 200px;
+//     box-shadow: 0 0 5px 1px rgba(black, .15);
+// }
+
+body, html { overflow-x: hidden; } 
+html, body { font-family: Arial, "Helvetica Neue", Helvetica,sans-serif; }
+h1, p { margin: 0 auto 1em; } 
+p { line-height: 1.5; }

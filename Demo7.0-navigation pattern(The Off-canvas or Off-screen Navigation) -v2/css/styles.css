@@ -1,0 +1,116 @@
+@charset "UTF-8";
+/* 
+	off-Canvas & Off-Screen Navigation -v2
+	Syntax:SCSS;
+	Created By:Sample;
+	Date:11/30/2018;
+ */
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0; }
+
+.menu {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  top: 0; }
+  @media (min-width: 40em) {
+    .menu {
+      position: relative;
+      text-align: center;
+      border: #999 1px dotted;
+      margin: 10px auto 0;
+      max-width: 980px; } }
+  .menu li {
+    width: 100%;
+    border-bottom: 1px dotted #999; }
+    @media (min-width: 40em) {
+      .menu li {
+        display: inline;
+        border-bottom: none; } }
+    .menu li a {
+      display: block;
+      padding: 1em;
+      color: #2963BD;
+      text-decoration: none; }
+      @media (min-width: 40em) {
+        .menu li a {
+          display: inline-block; } }
+
+.main-container {
+  max-width: 980px;
+  min-height: 100%;
+  margin: auto;
+  padding: 20px 0 20px 80px;
+  background: #eee;
+  position: relative;
+  left: 0;
+  -webkit-transition: left 0.2s;
+  -o-transition: left 0.2s;
+  transition: left 0.2s; }
+  @media (min-width: 40em) {
+    .main-container {
+      padding: 20px; } }
+
+.nav-trigger {
+  position: absolute;
+  clip: rect(0, 0, 0, 0); }
+
+.label-trigger {
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  border: 1px solid #ccc;
+  background: #fff;
+  z-index: 2;
+  cursor: pointer;
+  border-radius: 2px;
+  top: 10px;
+  left: 10px;
+  line-height: 0;
+  -webkit-transition: left 0.2s;
+  -o-transition: left 0.2s;
+  transition: left 0.2s; }
+  @media (min-width: 40em) {
+    .label-trigger {
+      display: none; } }
+  .label-trigger:before {
+    display: block;
+    content: '≡';
+    text-align: center;
+    font-size: 3em;
+    line-height: 0;
+    padding-top: 25px; }
+  .label-trigger span {
+    display: inline-block;
+    overflow: hidden; }
+
+.nav-trigger:checked + label {
+  left: 215px;
+  background: #000;
+  color: #fff; }
+
+.nav-trigger:checked ~ .main-container {
+  left: 200px;
+  -webkit-box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.15); }
+
+body, html {
+  overflow-x: hidden; }
+
+html, body {
+  font-family: Arial, "Helvetica Neue", Helvetica,sans-serif; }
+
+h1, p {
+  margin: 0 auto 1em; }
+
+p {
+  line-height: 1.5; }

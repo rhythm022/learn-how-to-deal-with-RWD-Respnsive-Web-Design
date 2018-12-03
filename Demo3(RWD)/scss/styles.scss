@@ -1,0 +1,33 @@
+@import "980gs";
+//Desktop-first Media Query Mixin
+@mixin forSmallScreens($media) {
+    @media (max-width: $media) {
+        @content;
+    }
+}
+//Basic styling
+.container_12 {
+	background:#aaa;
+	font-size:30px;
+	text-shadow: 0 1px 1px rgba(black, .5);
+}
+header {background: #429032;}
+nav { background: #2963BD; }
+section { background: #c90; }
+footer { background: #c03; }
+header,footer {height: 150px;}
+nav,section {height: 440px;}
+.container_12 {
+	@include forSmallScreens(980px){width: 768px;}
+	@include forSmallScreens(768px){width: 640px;}
+	@include forSmallScreens(640px){width: 480px;}
+	@include forSmallScreens(480px){width: 320px;padding: 0}
+
+
+.grid_3, .grid_9 {
+	@include forSmallScreens(768px){width:97.91%;}
+}
+.grid_3,  {
+	@include forSmallScreens(640px){height:50px;}
+}
+}

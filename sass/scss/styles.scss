@@ -1,0 +1,10 @@
+@import "compass/reset";
+
+
+
+.selector- {
+    &a,
+    &b {
+        background: #000;
+    }
+}

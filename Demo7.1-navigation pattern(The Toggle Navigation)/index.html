@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <button class="menu-link" act><span>Menu</span></button>
+    <nav id="menu" class="menu" role="navigation">
+        <ul>
+            <li><a href="#">Link 001</a></li>
+            <li><a href="#">Link 002</a></li>
+            <li><a href="#">Link 003</a></li>
+            <li><a href="#">Link 004</a></li>
+            <li><a href="#">Link 005</a></li>
+        </ul>
+    </nav>
+    <main class="main-container" role="main">
+        <h1>The Toggle Navigation</h1>
+        <p>On <strong>small screens</strong>, the menu is triggered with a hamburger icon.</p>
+        <p>On <strong>large screens</strong> starting at 40em(640px), the menu is a horizontal nav.</p>
+    </main>
+</body>
+<script>
+    + function(){
+        document.querySelector("#menu").classList.toggle("active");
+        window.addEventListener("click",function(event){
+            if(event.target.hasAttribute("act")){
+                event.target.classList.toggle("active");
+                document.querySelector("#menu").classList.toggle("active");
+
+            }
+        })
+    }()
+</script>
+</html>
